@@ -18,12 +18,12 @@ public class Main {
         Arrays.sort(arr2);
 
         for(int i = 0; i < n; i++){
-            if(arr1[i] == arr2[i]){
-                System.out.print("Yes");
+            if(arr1[i] != arr2[i]){
+                System.out.print("No");
                 return;
             }
         }
 
-        System.out.print("No");
+        System.out.print("Yes");
     }
 }
