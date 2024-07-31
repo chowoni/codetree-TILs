@@ -11,6 +11,7 @@ public class Main {
         for(int i = 0; i < n; i++)
             num[i] = sc.nextInt();
 
-        System.out.print(num[k]);
+        Arrays.sort(num);   
+        System.out.print(num[k-1]);
     }
 }
