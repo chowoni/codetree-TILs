@@ -10,16 +10,16 @@ public class Main {
 
         String[] arr = new String[n];
 
-        for(int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
             arr[i] = sc.next();
         
         Arrays.sort(arr);
 
-        for(int i = 0; i < n; i++){
-            if(arr[i].contains(st))
+        for (int i = 0; i < n; i++) {
+            if (arr[i].contains(st))
                 k--;
-            
-            if(k == 0){
+
+            if (k == 0) {
                 System.out.print(arr[i]);
                 return;
             }
