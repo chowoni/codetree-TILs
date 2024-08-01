@@ -6,23 +6,18 @@ public class Main {
 
         int n = sc.nextInt();
         int k = sc.nextInt();
-        String st = sc.next();
-
-        String[] arr = new String[n];
-
-        for (int i = 0; i < n; i++)
-            arr[i] = sc.next();
-        
-        Arrays.sort(arr);
+        String T = sc.next();
+        sc.nextLine();
+        List<String> words = new ArrayList<>();
 
         for (int i = 0; i < n; i++) {
-            if (arr[i].contains(st))
-                k--;
-
-            if (k == 0) {
-                System.out.print(arr[i]);
-                return;
+            String word = sc.nextLine();
+            if (word.startsWith(T)) {
+                words.add(word);
             }
         }
+
+        Collections.sort(words);
+        System.out.println(words.get(k - 1));
     }
 }
