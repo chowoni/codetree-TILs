@@ -9,14 +9,21 @@ public class Main {
 
         int[] arr = new int[n];
 
-        for(int i = 0; i < k; i++){
+        for (int i = 0; i < k; i++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
 
-            for(int j = a; j <= b; j++)
-                arr[j]++;
+            if (a >= 0 && a < n && b >= 0 && b < n && a <= b) {
+                for (int j = a; j <= b; j++)
+                    arr[j]++;
+            } else {
+                System.out.println("Invalid range: " + a + " to " + b);
+                return;
+            }
         }
 
-        System.out.print(Arrays.stream(arr).max().getAsInt());
+        int max = Arrays.stream(arr).max().orElse(0);
+
+        System.out.println(max);
     }
 }
