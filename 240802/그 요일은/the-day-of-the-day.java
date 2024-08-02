@@ -1,7 +1,6 @@
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
+import java.time.DateTimeException;
 import java.util.Scanner;
 
 public class Main {
@@ -18,15 +17,33 @@ public class Main {
         String targetDay = scanner.nextLine().trim();
 
         // 요일 매핑
-        DayOfWeek targetDayOfWeek = mapDayOfWeek(targetDay);
+        DayOfWeek targetDayOfWeek;
+        try {
+            targetDayOfWeek = mapDayOfWeek(targetDay);
+        } catch (IllegalArgumentException e) {
+            System.err.println("Invalid day of the week: " + targetDay);
+            return;
+        }
 
-        // 날짜 계산
-        LocalDate startDate = LocalDate.of(2024, m1, d1);
-        LocalDate endDate = LocalDate.of(2024, m2, d2);
+        // 날짜 계산 및 유효성 검사
+        LocalDate startDate;
+        LocalDate endDate;
+        try {
+            startDate = LocalDate.of(2024, m1, d1);
+            endDate = LocalDate.of(2024, m2, d2);
+        } catch (DateTimeException e) {
+            System.err.println("Invalid date provided.");
+            return;
+        }
+
+        if (startDate.isAfter(endDate)) {
+            System.err.println("Start date is after end date.");
+            return;
+        }
 
         int count = 0;
         LocalDate currentDate = startDate;
-        
+
         // 날짜 반복 및 요일 카운트
         while (!currentDate.isAfter(endDate)) {
             if (currentDate.getDayOfWeek() == targetDayOfWeek) {
