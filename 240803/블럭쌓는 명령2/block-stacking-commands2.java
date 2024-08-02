@@ -13,13 +13,9 @@ public class Main {
             int a = sc.nextInt();
             int b = sc.nextInt();
 
-            if (a >= 0 && a < n && b >= 0 && b < n && a <= b) {
-                for (int j = a; j <= b; j++)
-                    arr[j]++;
-            } else {
-                System.out.println("Invalid range: " + a + " to " + b);
-                return;
-            }
+            for (int j = a; j <= b; j++)
+                arr[j]++;
+            
         }
 
         int max = Arrays.stream(arr).max().orElse(0);
