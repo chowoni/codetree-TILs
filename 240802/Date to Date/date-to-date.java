@@ -11,6 +11,9 @@ public class Main {
 
         int day = (m2*31 + d2) - (m1*31 + d1);
 
+        if(day == 0)
+         day = 1;
+
         System.out.print(day);
     }
 }
