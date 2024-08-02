@@ -12,7 +12,7 @@ public class Main {
         int m2 = sc.nextInt();
         int d2 = sc.nextInt();
 
-        int baseDayOfWeek = 1; // 0: Sun, 1: Mon, ..., 6: Sat
+        int baseDayOfWeek = 1; // 2011년 1월 1일이 토요일이므로 baseDayOfWeek = 6
 
         int daysBetween = calculateDaysBetween(m1, d1, m2, d2, daysInMonth);
         int targetDayOfWeek = (baseDayOfWeek + daysBetween) % 7;
