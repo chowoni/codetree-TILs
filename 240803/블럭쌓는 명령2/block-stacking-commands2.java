@@ -1,25 +1,30 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
-        int k = sc.nextInt();
+        int N = sc.nextInt();
+        int K = sc.nextInt();
 
-        int[] arr = new int[n];
+        int[] blocks = new int[N];
 
-        for (int i = 0; i < k; i++) {
-            int a = sc.nextInt();
-            int b = sc.nextInt();
+        for (int i = 0; i < K; i++) {
+            int A = sc.nextInt();
+            int B = sc.nextInt();
 
-            for (int j = a; j <= b; j++)
-                arr[j]++;
-            
+            for (int j = A - 1; j < B; j++) {
+                blocks[j]++;
+            }
         }
 
-        int max = Arrays.stream(arr).max().orElse(0);
+        int maxBlocks = 0;
+        for (int count : blocks) {
+            if (count > maxBlocks) {
+                maxBlocks = count;
+            }
+        }
 
-        System.out.println(max);
+        System.out.println(maxBlocks);
     }
 }
