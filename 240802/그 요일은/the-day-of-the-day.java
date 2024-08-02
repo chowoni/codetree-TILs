@@ -19,17 +19,16 @@ public class Main {
         int d1 = sc.nextInt();
         int m2 = sc.nextInt();
         int d2 = sc.nextInt();
-        
+        String day = sc.next();
+        int cnt = 0;
         int diff = numOfDays(m2, d2) - numOfDays(m1, d1);
-        
-        while (diff < 0)
-            diff += 7;
-        
-        String[] dayOfWeek = new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+        String[] d = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
-        if(diff % 7 != 0)
-            System.out.print(diff/7+1);
-        else
-            System.out.print(diff/7);
+        for(int i = 1; i <= diff; i++){
+            if(d[i%7].equals(day))
+                cnt++;
+        }
+
+        System.out.print(cnt+1); 
     }
 }
